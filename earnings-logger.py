@@ -50,9 +50,14 @@ def write_to_memory(data):
         f.write(json_str)
 
 
-# checks if file was run with '--summary'
-if sys.argv[1] == '--summary':
-    print(data.values())
+# checks the sum in 'earnings.json'
+try:
+    if sys.argv[1] == '--summary':
+        print(sum(data.values()))
+        exit()
+except IndexError:
+    pass
+
 # keeps taking date and its pay for input into 'data'
 while True:
 
